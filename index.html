@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    /* Netlify Identity emails (invite/confirm/recover) link to the site
+       root with a token in the URL hash. Only /admin/ has the Identity
+       widget loaded to process it, so forward the token there. */
+    if (/invite_token|confirmation_token|recovery_token|access_token/.test(window.location.hash)) {
+      window.location.replace("/admin/" + window.location.hash);
+    }
+  </script>
 </head>
 <body>
   <header class="site-header" id="site-header"></header>
