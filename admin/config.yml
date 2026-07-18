@@ -1,0 +1,68 @@
+# Decap CMS configuration for the Lasău village site.
+# See README.md in the project root for how to enable this (Netlify Identity + Git Gateway).
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment to test the CMS locally without deploying (see README "Local testing").
+# local_backend: true
+
+publish_mode: simple
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "settings"
+    label: "Setări site / Site settings"
+    files:
+      - file: "content/settings.json"
+        label: "Imagini principale / Main images"
+        name: "settings"
+        fields:
+          - { label: "Fotografie principală (Acasă) / Hero photo (Home)", name: "hero_image", widget: "image", required: false, hint: "Înlocuiește ilustrația cu dealuri de pe pagina principală." }
+          - { label: "Fotografie pagina Despre sat / About page photo", name: "about_image", widget: "image", required: false }
+
+  - name: "news"
+    label: "Știri / News"
+    files:
+      - file: "content/news/news.json"
+        label: "Toate știrile / All news posts"
+        name: "news"
+        fields:
+          - label: "Articole / Posts"
+            name: "posts"
+            widget: "list"
+            label_singular: "Articol / Post"
+            fields:
+              - { label: "Identificator URL (slug, fără spații)", name: "slug", widget: "string", hint: "ex: curatenie-de-primavara-2026" }
+              - { label: "Data / Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Fotografie (opțional) / Photo (optional)", name: "image", widget: "image", required: false }
+              - { label: "Titlu (RO)", name: "title_ro", widget: "string" }
+              - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Rezumat (RO)", name: "excerpt_ro", widget: "text" }
+              - { label: "Excerpt (EN)", name: "excerpt_en", widget: "text", required: false }
+              - { label: "Text integral (RO)", name: "body_ro", widget: "text" }
+              - { label: "Full text (EN)", name: "body_en", widget: "text", required: false }
+
+  - name: "history"
+    label: "Istorie / History"
+    files:
+      - file: "content/history/history.json"
+        label: "Toate articolele de istorie / All history posts"
+        name: "history"
+        fields:
+          - label: "Articole / Posts"
+            name: "posts"
+            widget: "list"
+            label_singular: "Articol / Post"
+            fields:
+              - { label: "Identificator URL (slug, fără spații)", name: "slug", widget: "string", hint: "ex: prima-atestare-documentara" }
+              - { label: "Data / Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Fotografie (opțional) / Photo (optional)", name: "image", widget: "image", required: false }
+              - { label: "Titlu (RO)", name: "title_ro", widget: "string" }
+              - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Rezumat (RO)", name: "excerpt_ro", widget: "text" }
+              - { label: "Excerpt (EN)", name: "excerpt_en", widget: "text", required: false }
+              - { label: "Text integral (RO)", name: "body_ro", widget: "text" }
+              - { label: "Full text (EN)", name: "body_en", widget: "text", required: false }

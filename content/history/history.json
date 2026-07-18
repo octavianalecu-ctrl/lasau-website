@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "slug": "prima-atestare-documentara",
+      "date": "2026-01-15",
+      "title_ro": "Prima atestare documentară a satului Lasău",
+      "title_en": "The first documented mention of Lasău",
+      "excerpt_ro": "Ce știm despre cele mai vechi mențiuni scrise ale satului nostru.",
+      "excerpt_en": "What we know about the earliest written mentions of our village.",
+      "body_ro": "Acest articol este un loc de pornire — completați-l cu informații verificate despre prima atestare documentară a satului Lasău, sursele istorice folosite și contextul administrativ al vremii.\n\nDacă aveți documente, fotografii vechi sau amintiri ale bătrânilor satului legate de acest subiect, vă rugăm să le trimiteți pentru a completa articolul.",
+      "body_en": "This article is a starting point — please fill it in with verified information about the first documented mention of Lasău, the historical sources used, and the administrative context of the time.\n\nIf you have documents, old photographs, or memories from village elders related to this topic, please send them so the article can be completed."
+    },
+    {
+      "slug": "traditii-si-obiceiuri-locale",
+      "date": "2026-02-02",
+      "title_ro": "Tradiții și obiceiuri locale",
+      "title_en": "Local traditions and customs",
+      "excerpt_ro": "O trecere în revistă a obiceiurilor păstrate de-a lungul generațiilor în Lasău.",
+      "excerpt_en": "An overview of customs preserved across generations in Lasău.",
+      "body_ro": "Completați acest articol cu obiceiuri și tradiții specifice satului Lasău: sărbători locale, port popular, meșteșuguri sau evenimente comunitare cu rădăcini istorice.",
+      "body_en": "Fill in this article with customs and traditions specific to Lasău: local celebrations, folk costume, crafts, or community events with historical roots."
+    }
+  ]
+}

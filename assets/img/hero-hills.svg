@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b3854"/>
+      <stop offset="35%" stop-color="#8a5a63"/>
+      <stop offset="62%" stop-color="#d98a52"/>
+      <stop offset="100%" stop-color="#f4c37a"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe9b8" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#f9c876" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#f9c876" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hillBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9c7d63"/>
+      <stop offset="100%" stop-color="#7c6350"/>
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5f6b45"/>
+      <stop offset="100%" stop-color="#4a5636"/>
+    </linearGradient>
+    <linearGradient id="hillFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#33422a"/>
+      <stop offset="100%" stop-color="#232e1c"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="600" fill="url(#sky)"/>
+  <circle cx="1180" cy="330" r="230" fill="url(#sun)"/>
+  <circle cx="1180" cy="330" r="46" fill="#fff3d6" opacity="0.9"/>
+
+  <!-- distant hill layer -->
+  <path d="M0,400 C180,350 340,430 520,390 C700,350 860,410 1040,380 C1220,350 1380,400 1600,370 L1600,600 L0,600 Z" fill="url(#hillBack)" opacity="0.55"/>
+
+  <!-- mid hill layer -->
+  <path d="M0,460 C160,410 300,470 480,440 C660,410 820,460 1000,430 C1180,400 1360,450 1600,420 L1600,600 L0,600 Z" fill="url(#hillMid)" opacity="0.8"/>
+
+  <!-- front hill layer -->
+  <path d="M0,520 C200,470 380,510 560,485 C760,460 900,510 1080,490 C1280,468 1420,505 1600,480 L1600,600 L0,600 Z" fill="url(#hillFront)"/>
+
+  <!-- small village silhouette nestled on the front hill -->
+  <g transform="translate(760,435)" fill="#1c2517">
+    <!-- trees -->
+    <ellipse cx="-70" cy="46" rx="16" ry="24"/>
+    <rect x="-72" y="60" width="4" height="10"/>
+    <ellipse cx="150" cy="50" rx="14" ry="21"/>
+    <rect x="148" y="63" width="4" height="9"/>
+
+    <!-- church -->
+    <rect x="20" y="18" width="44" height="34" />
+    <polygon points="18,18 42,-6 66,18" />
+    <rect x="39" y="-24" width="6" height="20" />
+    <rect x="34" y="-16" width="16" height="4" />
+
+    <!-- small houses -->
+    <rect x="-40" y="34" width="26" height="18" />
+    <polygon points="-42,34 -27,22 -12,34" />
+    <rect x="80" y="36" width="24" height="16" />
+    <polygon points="78,36 92,25 106,36" />
+  </g>
+</svg>

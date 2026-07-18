@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "slug": "curatenie-de-primavara-2026",
+      "date": "2026-04-04",
+      "title_ro": "Acțiune de curățenie de primăvară în sat",
+      "title_en": "Spring clean-up day in the village",
+      "excerpt_ro": "Sâmbătă, 11 aprilie, ne strângem la Căminul Cultural pentru curățenia anuală a satului.",
+      "excerpt_en": "On Saturday, April 11th, we're meeting at the Community Hall for the annual village clean-up.",
+      "body_ro": "Sâmbătă, 11 aprilie, de la ora 9:00, invităm toți locuitorii satului la acțiunea anuală de curățenie.\n\nNe întâlnim la Căminul Cultural, de unde vom porni pe grupuri spre principalele zone comune: drumul principal, malul pârâului și zona din jurul bisericii.\n\nCine poate, este rugat să aducă mănuși și, dacă are, o roabă. Sacii de gunoi vor fi asigurați de primărie. La final, ne revanșăm cu un grătar comun pentru toți voluntarii.",
+      "body_en": "On Saturday, April 11th, starting at 9:00 AM, all villagers are invited to the annual clean-up day.\n\nWe'll meet at the Community Hall and split into groups to cover the main areas: the main road, the creek bank, and around the church.\n\nIf you can, please bring gloves and a wheelbarrow if you have one. Trash bags will be provided by the local council. Afterwards, we'll thank all volunteers with a shared barbecue."
+    },
+    {
+      "slug": "program-biserica-paste-2026",
+      "date": "2026-03-20",
+      "title_ro": "Programul slujbelor de Paște la biserica din Lasău",
+      "title_en": "Easter service schedule at the Lasău church",
+      "excerpt_ro": "Programul complet al slujbelor din Săptămâna Mare și de Paște.",
+      "excerpt_en": "The full schedule of Holy Week and Easter services.",
+      "body_ro": "Biserica din Lasău anunță programul slujbelor pentru Săptămâna Mare și sărbătoarea de Paște. Detaliile complete vor fi afișate și la avizierul din centrul satului.\n\nToți enoriașii sunt bineveniți.",
+      "body_en": "The Lasău church has announced its Holy Week and Easter service schedule. Full details will also be posted on the notice board in the village center.\n\nAll parishioners are welcome."
+    }
+  ]
+}

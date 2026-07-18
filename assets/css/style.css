@@ -1,0 +1,332 @@
+/* ===== Lasău village site — base styles ===== */
+
+:root {
+  --color-bg: #faf6ee;
+  --color-bg-alt: #f2e8d8;
+  --color-text: #2a2620;
+  --color-muted: #6d6153;
+  --color-accent: #b5602f;
+  --color-accent-dark: #8f4a22;
+  --color-hills: #4a5636;
+  --color-hills-dark: #232e1c;
+  --color-border: #e4d7bf;
+  --shadow-sm: 0 1px 2px rgba(35, 27, 15, 0.06), 0 1px 1px rgba(35, 27, 15, 0.04);
+  --shadow-md: 0 6px 16px rgba(35, 27, 15, 0.10), 0 2px 6px rgba(35, 27, 15, 0.06);
+  --shadow-lg: 0 18px 40px rgba(35, 27, 15, 0.16), 0 4px 12px rgba(35, 27, 15, 0.08);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --max-width: 980px;
+  --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--color-accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1em; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---- Header / nav ---- */
+.site-header {
+  background: rgba(250, 246, 238, 0.92);
+  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.site-title span { color: var(--color-accent); }
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.main-nav a:hover { color: var(--color-accent-dark); }
+
+.main-nav a.active {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  border-bottom-color: var(--color-accent);
+}
+
+.lang-toggle {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lang-toggle:hover { background: var(--color-bg-alt); box-shadow: var(--shadow-sm); }
+
+/* ---- Hero (home page) ---- */
+.hero {
+  position: relative;
+  background-image: url("../img/hero-hills.svg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding: 6.5rem 0 5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(30, 22, 14, 0.35) 0%, rgba(30, 22, 14, 0.15) 45%, rgba(250, 246, 238, 1) 100%);
+  pointer-events: none;
+}
+
+.hero .container { position: relative; z-index: 1; }
+
+.hero h1 {
+  color: #fff8ec;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  margin-bottom: 0.4em;
+}
+
+.hero p {
+  color: #fbeedb;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  max-width: 42em;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* ---- Page banner (interior pages) ---- */
+.page-banner {
+  background: linear-gradient(135deg, var(--color-hills) 0%, var(--color-hills-dark) 100%);
+  padding: 3.25rem 0 2.75rem;
+}
+
+.page-banner h1 { color: #fff8ec; margin-bottom: 0.3em; }
+.page-banner p { color: #e7e0cf; max-width: 40em; margin: 0; }
+
+/* ---- Sections ---- */
+.section { padding: 2.75rem 0; }
+.section + .section { border-top: 1px solid var(--color-border); }
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+
+.section-heading a { font-size: 0.9rem; font-weight: 600; }
+
+/* ---- Cards ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-thumb {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.18) 100%);
+}
+
+.card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+
+.card .date {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.card h3 { margin-top: 0.35em; }
+.card h3 a { color: var(--color-text); }
+.card h3 a:hover { color: var(--color-accent-dark); text-decoration: none; }
+
+.card p.excerpt { color: var(--color-muted); margin-bottom: 0.6em; flex: 1; }
+
+.card .read-more {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Deterministic warm gradient placeholders used when a post has no image */
+.thumb-grad-1 { background-image: linear-gradient(135deg, #d98a52, #8f4a22); }
+.thumb-grad-2 { background-image: linear-gradient(135deg, #c1652f, #5f6b45); }
+.thumb-grad-3 { background-image: linear-gradient(135deg, #b5602f, #3b3854); }
+.thumb-grad-4 { background-image: linear-gradient(135deg, #e0a15f, #4a5636); }
+
+/* ---- Article detail ---- */
+.article {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.article .date { color: var(--color-muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.article h1 { margin-top: 0.4em; }
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ---- Photo slot: customizable image area (hero/about), shows a hint
+   placeholder until a real photo is set via settings.json or the CMS ---- */
+.photo-slot {
+  height: 280px;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.photo-slot-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-bg-alt);
+  border: 2px dashed var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  box-shadow: none;
+}
+
+/* ---- Info blocks (About / Contact) ---- */
+.info-block {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--color-hills-dark);
+  color: #d9d2c1;
+  padding: 2.25rem 0;
+  margin-top: 2rem;
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-footer p { margin: 0; font-size: 0.85rem; }
+
+.site-footer .footer-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+.site-footer .footer-nav a { color: #d9d2c1; font-size: 0.85rem; }
+.site-footer .footer-nav a:hover { color: #fff; }
+
+/* ---- Utility ---- */
+.empty-state { color: var(--color-muted); font-style: italic; }
+
+@media (max-width: 600px) {
+  .site-header .container { flex-direction: column; align-items: flex-start; }
+  .hero { padding: 4rem 0 3rem; }
+  .hero h1 { font-size: 2rem; }
+  .site-footer .container { flex-direction: column; align-items: flex-start; text-align: left; }
+}
