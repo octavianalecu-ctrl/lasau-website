@@ -13,15 +13,80 @@ media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
 collections:
-  - name: "settings"
-    label: "Setări site / Site settings"
+  - name: "pages"
+    label: "Pagini / Pages"
     files:
-      - file: "content/settings.json"
-        label: "Imagini principale / Main images"
-        name: "settings"
+      - file: "content/pages/home.json"
+        label: "Pagina Acasă / Home page"
+        name: "home"
         fields:
-          - { label: "Fotografie principală (Acasă) / Hero photo (Home)", name: "hero_image", widget: "image", required: false, hint: "Înlocuiește ilustrația cu dealuri de pe pagina principală." }
-          - { label: "Fotografie pagina Despre sat / About page photo", name: "about_image", widget: "image", required: false }
+          - { label: "Titlu principal (RO) / Hero title (RO)", name: "hero_title_ro", widget: "string" }
+          - { label: "Hero title (EN)", name: "hero_title_en", widget: "string", required: false }
+          - { label: "Subtitlu (RO) / Hero subtitle (RO)", name: "hero_subtitle_ro", widget: "text" }
+          - { label: "Hero subtitle (EN)", name: "hero_subtitle_en", widget: "text", required: false }
+          - { label: "Fotografie principală / Hero photo", name: "hero_image", widget: "image", required: false, hint: "Înlocuiește ilustrația cu dealuri." }
+          - { label: "Titlu secțiune Știri (RO)", name: "news_heading_ro", widget: "string" }
+          - { label: "News section heading (EN)", name: "news_heading_en", widget: "string", required: false }
+          - { label: "Titlu secțiune Istorie (RO)", name: "history_heading_ro", widget: "string" }
+          - { label: "History section heading (EN)", name: "history_heading_en", widget: "string", required: false }
+          - label: "Știri recomandate pe Acasă / Featured news"
+            name: "featured_news"
+            widget: "relation"
+            collection: "news"
+            file: "news"
+            search_fields: ["posts.*.title_ro", "posts.*.slug"]
+            value_field: "posts.*.slug"
+            display_fields: ["posts.*.title_ro"]
+            multiple: true
+            required: false
+            hint: "Lasă gol pentru a afișa automat cele mai recente 2 știri."
+          - label: "Articole de istorie recomandate pe Acasă / Featured history"
+            name: "featured_history"
+            widget: "relation"
+            collection: "history"
+            file: "history"
+            search_fields: ["posts.*.title_ro", "posts.*.slug"]
+            value_field: "posts.*.slug"
+            display_fields: ["posts.*.title_ro"]
+            multiple: true
+            required: false
+            hint: "Lasă gol pentru a afișa automat cele mai recente 2 articole."
+
+      - file: "content/pages/about.json"
+        label: "Pagina Despre sat / About page"
+        name: "about"
+        fields:
+          - { label: "Titlu (RO)", name: "title_ro", widget: "string" }
+          - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+          - { label: "Introducere (RO)", name: "intro_ro", widget: "text" }
+          - { label: "Intro (EN)", name: "intro_en", widget: "text", required: false }
+          - { label: "Fotografie / Photo", name: "image", widget: "image", required: false }
+          - { label: "Titlu secțiune Date generale (RO)", name: "facts_heading_ro", widget: "string" }
+          - { label: "\"General facts\" heading (EN)", name: "facts_heading_en", widget: "string", required: false }
+          - { label: "Text Date generale (RO)", name: "facts_text_ro", widget: "text" }
+          - { label: "\"General facts\" text (EN)", name: "facts_text_en", widget: "text", required: false }
+          - { label: "Titlu secțiune Cum ajungeți (RO)", name: "directions_heading_ro", widget: "string" }
+          - { label: "\"How to get there\" heading (EN)", name: "directions_heading_en", widget: "string", required: false }
+          - { label: "Text Cum ajungeți (RO)", name: "directions_text_ro", widget: "text" }
+          - { label: "\"How to get there\" text (EN)", name: "directions_text_en", widget: "text", required: false }
+
+      - file: "content/pages/contact.json"
+        label: "Pagina Contact / Contact page"
+        name: "contact"
+        fields:
+          - { label: "Titlu (RO)", name: "title_ro", widget: "string" }
+          - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+          - { label: "Introducere (RO)", name: "intro_ro", widget: "text" }
+          - { label: "Intro (EN)", name: "intro_en", widget: "text", required: false }
+          - { label: "Titlu Primărie (RO)", name: "council_heading_ro", widget: "string" }
+          - { label: "\"Council\" heading (EN)", name: "council_heading_en", widget: "string", required: false }
+          - { label: "Text Primărie (RO)", name: "council_text_ro", widget: "text" }
+          - { label: "\"Council\" text (EN)", name: "council_text_en", widget: "text", required: false }
+          - { label: "Titlu Despre site (RO)", name: "site_heading_ro", widget: "string" }
+          - { label: "\"About this site\" heading (EN)", name: "site_heading_en", widget: "string", required: false }
+          - { label: "Text Despre site (RO)", name: "site_text_ro", widget: "text" }
+          - { label: "\"About this site\" text (EN)", name: "site_text_en", widget: "text", required: false }
+          - { label: "Email de contact", name: "email", widget: "string" }
 
   - name: "news"
     label: "Știri / News"
@@ -30,6 +95,10 @@ collections:
         label: "Toate știrile / All news posts"
         name: "news"
         fields:
+          - { label: "Titlul paginii (RO) / Page title (RO)", name: "page_title_ro", widget: "string" }
+          - { label: "Page title (EN)", name: "page_title_en", widget: "string", required: false }
+          - { label: "Introducerea paginii (RO) / Page intro (RO)", name: "page_intro_ro", widget: "text" }
+          - { label: "Page intro (EN)", name: "page_intro_en", widget: "text", required: false }
           - label: "Articole / Posts"
             name: "posts"
             widget: "list"
@@ -52,6 +121,10 @@ collections:
         label: "Toate articolele de istorie / All history posts"
         name: "history"
         fields:
+          - { label: "Titlul paginii (RO) / Page title (RO)", name: "page_title_ro", widget: "string" }
+          - { label: "Page title (EN)", name: "page_title_en", widget: "string", required: false }
+          - { label: "Introducerea paginii (RO) / Page intro (RO)", name: "page_intro_ro", widget: "text" }
+          - { label: "Page intro (EN)", name: "page_intro_en", widget: "text", required: false }
           - label: "Articole / Posts"
             name: "posts"
             widget: "list"

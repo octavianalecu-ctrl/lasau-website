@@ -14,8 +14,8 @@
 
   <div class="page-banner">
     <div class="container">
-      <h1 data-i18n="news_page_title"></h1>
-      <p data-i18n="news_page_intro"></p>
+      <h1 data-field="page_title"></h1>
+      <p data-field="page_intro"></p>
     </div>
   </div>
 
@@ -34,14 +34,20 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/layout.js"></script>
   <script src="assets/js/posts.js"></script>
+  <script src="assets/js/content.js"></script>
   <script>
     async function initNews() {
       const detailEl = document.getElementById("news-detail");
       const listWrap = document.getElementById("news-list-wrap");
       const listEl = document.getElementById("news-list");
-      const posts = await fetchPosts("content/news/news.json");
+      const banner = document.querySelector(".page-banner .container");
+      const [posts, pageData] = await Promise.all([
+        fetchPosts("content/news/news.json"),
+        fetchPageContent("content/news/news.json"),
+      ]);
 
       const render = () => {
+        applyFieldsIn(banner, pageData);
         const showedDetail = renderPostDetail(detailEl, posts, { listPage: "news.html" });
         if (showedDetail) {
           listWrap.style.display = "none";

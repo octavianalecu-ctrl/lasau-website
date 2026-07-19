@@ -44,6 +44,15 @@ function thumbClassAttrFor(post) {
   return post.image ? "" : ` ${thumbClassFor(post.slug)}`;
 }
 
+/* Picks posts by slug in the given order (for a "featured on home" selection
+   made in the CMS). Falls back to the 2 most recent posts when no slugs
+   are configured, so the home page still looks right out of the box. */
+function pickFeatured(posts, slugs) {
+  if (!slugs || slugs.length === 0) return posts.slice(0, 2);
+  const bySlug = new Map(posts.map((p) => [p.slug, p]));
+  return slugs.map((s) => bySlug.get(s)).filter(Boolean);
+}
+
 /* Renders a grid of post cards. `limit` caps how many are shown (home page previews). */
 function renderPostCards(container, posts, { basePage, limit } = {}) {
   const lang = getLang();

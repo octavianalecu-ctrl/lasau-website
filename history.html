@@ -14,8 +14,8 @@
 
   <div class="page-banner">
     <div class="container">
-      <h1 data-i18n="history_page_title"></h1>
-      <p data-i18n="history_page_intro"></p>
+      <h1 data-field="page_title"></h1>
+      <p data-field="page_intro"></p>
     </div>
   </div>
 
@@ -34,14 +34,20 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/layout.js"></script>
   <script src="assets/js/posts.js"></script>
+  <script src="assets/js/content.js"></script>
   <script>
     async function initHistory() {
       const detailEl = document.getElementById("history-detail");
       const listWrap = document.getElementById("history-list-wrap");
       const listEl = document.getElementById("history-list");
-      const posts = await fetchPosts("content/history/history.json");
+      const banner = document.querySelector(".page-banner .container");
+      const [posts, pageData] = await Promise.all([
+        fetchPosts("content/history/history.json"),
+        fetchPageContent("content/history/history.json"),
+      ]);
 
       const render = () => {
+        applyFieldsIn(banner, pageData);
         const showedDetail = renderPostDetail(detailEl, posts, { listPage: "history.html" });
         if (showedDetail) {
           listWrap.style.display = "none";

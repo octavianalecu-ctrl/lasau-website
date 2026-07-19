@@ -22,15 +22,15 @@
 
   <section class="hero">
     <div class="container">
-      <h1 data-i18n="hero_title"></h1>
-      <p data-i18n="hero_subtitle"></p>
+      <h1 data-field="hero_title"></h1>
+      <p data-field="hero_subtitle"></p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <div class="section-heading">
-        <h2 data-i18n="home_news_heading"></h2>
+        <h2 data-field="news_heading"></h2>
         <a href="news.html" data-i18n="see_all"></a>
       </div>
       <div class="card-grid" id="home-news-list"></div>
@@ -40,7 +40,7 @@
   <section class="section">
     <div class="container">
       <div class="section-heading">
-        <h2 data-i18n="home_history_heading"></h2>
+        <h2 data-field="history_heading"></h2>
         <a href="history.html" data-i18n="see_all"></a>
       </div>
       <div class="card-grid" id="home-history-list"></div>
@@ -53,20 +53,21 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/layout.js"></script>
   <script src="assets/js/posts.js"></script>
-  <script src="assets/js/settings.js"></script>
+  <script src="assets/js/content.js"></script>
   <script>
     async function initHome() {
       const newsList = document.getElementById("home-news-list");
       const historyList = document.getElementById("home-history-list");
-      const [newsPosts, historyPosts, settings] = await Promise.all([
+      const [newsPosts, historyPosts, home] = await Promise.all([
         fetchPosts("content/news/news.json"),
         fetchPosts("content/history/history.json"),
-        fetchSettings(),
+        fetchPageContent("content/pages/home.json"),
       ]);
-      applyHeroImage(settings);
+      applyHeroImage(home);
       const render = () => {
-        renderPostCards(newsList, newsPosts, { basePage: "news.html", limit: 2 });
-        renderPostCards(historyList, historyPosts, { basePage: "history.html", limit: 2 });
+        applyFieldsIn(document, home);
+        renderPostCards(newsList, pickFeatured(newsPosts, home.featured_news), { basePage: "news.html" });
+        renderPostCards(historyList, pickFeatured(historyPosts, home.featured_history), { basePage: "history.html" });
       };
       render();
       document.addEventListener("langchange", render);
