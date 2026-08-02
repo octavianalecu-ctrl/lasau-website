@@ -27,6 +27,14 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+/* Reads a {ro, en} field (falls back to whichever locale is present). */
+function postField(post, base, lang) {
+  const field = post[base];
+  if (!field) return "";
+  if (typeof field === "string") return field;
+  return field[lang] || field.ro || field.en || "";
+}
+
 /* Picks one of 4 warm gradient placeholders deterministically from the slug,
    so posts without a real photo still look varied and intentional. */
 function thumbClassFor(slug) {
@@ -67,8 +75,8 @@ function renderPostCards(container, posts, { basePage, limit } = {}) {
 
   container.innerHTML = list
     .map((post) => {
-      const title = post[`title_${lang}`] || post.title_ro || post.title_en || "";
-      const excerpt = post[`excerpt_${lang}`] || post.excerpt_ro || post.excerpt_en || "";
+      const title = postField(post, "title", lang);
+      const excerpt = postField(post, "excerpt", lang);
       const href = `${basePage}?slug=${encodeURIComponent(post.slug)}`;
       return `
         <article class="card">
@@ -102,8 +110,8 @@ function renderPostDetail(container, posts, { listPage } = {}) {
     return true;
   }
 
-  const title = post[`title_${lang}`] || post.title_ro || post.title_en || "";
-  const body = post[`body_${lang}`] || post.body_ro || post.body_en || "";
+  const title = postField(post, "title", lang);
+  const body = postField(post, "body", lang);
   const bodyHtml = body
     .split(/\n\s*\n/)
     .map((para) => `<p>${escapeHtml(para).replace(/\n/g, "<br>")}</p>`)

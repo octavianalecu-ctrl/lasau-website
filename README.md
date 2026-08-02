@@ -52,11 +52,19 @@ Odată activat CMS-ul (pași mai jos), din `/admin/` poți edita, fără cod:
 - **Pagina Contact** — titlu, introducere, datele primăriei, textul despre site și email-ul
   de contact.
 - **Știri** — titlul și introducerea paginii, plus fiecare articol (titlu, rezumat, text
-  integral, fotografie opțională, dată).
+  integral, fotografie opțională). URL-ul articolului și data se generează automat.
 - **Istorie** — la fel ca Știri.
 
-Toate câmpurile de text au variantă RO și, opțional, EN (dacă lipsește varianta EN, site-ul
-afișează automat textul RO și pentru vizitatorii care aleg engleză).
+Fiecare câmp de text are RO și EN **în aceeași casetă** (RO obligatoriu, EN opțional) — nu în
+secțiuni separate. Dacă lipsește varianta EN, site-ul afișează automat textul RO și pentru
+vizitatorii care aleg engleză.
+
+**URL (slug) și data articolelor se generează automat** la prima salvare (din titlul RO,
+diacritice eliminate), fără să le completezi manual — de-asta nu apar ca și câmpuri în formular.
+
+**Preview înainte de publish**: fiecare modificare devine mai întâi un draft ("Fluxul editorial"
+din meniul din stânga), cu buton **„Check for Preview"** care deschide site-ul real, cu
+modificarea aplicată, înainte să apeși **Publish**.
 
 ## Cum se adaugă o știre sau un articol de istorie
 
@@ -65,9 +73,10 @@ afișează automat textul RO și pentru vizitatorii care aleg engleză).
 Deschide `content/news/news.json` (sau `content/history/history.json`) și adaugă un nou obiect
 în lista `posts`, după modelul celor existente.
 
-Câmpuri: `slug` (identificator unic, fără spații/diacritice), `date` (AAAA-LL-ZZ), `title_ro`,
-`title_en`, `excerpt_ro`, `excerpt_en`, `body_ro`, `body_en`, `image` (opțional). Paragrafele
-din `body` se separă cu o linie goală.
+Câmpuri: `slug` (identificator unic, fără spații/diacritice), `date` (AAAA-LL-ZZ), `title.ro`,
+`title.en`, `excerpt.ro`, `excerpt.en`, `body.ro`, `body.en`, `image` (opțional). Paragrafele
+din `body` se separă cu o linie goală. (Din panoul de administrare, slug-ul și data se
+completează singure — asta contează doar dacă editezi fișierul JSON direct.)
 
 ### Varianta pentru voluntari non-tehnici (panou de administrare)
 

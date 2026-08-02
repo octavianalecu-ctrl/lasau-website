@@ -13,7 +13,10 @@ async function fetchPageContent(jsonPath) {
 }
 
 function fieldFor(data, base, lang) {
-  return data[`${base}_${lang}`] || data[`${base}_ro`] || data[`${base}_en`] || "";
+  const field = data[base];
+  if (!field) return "";
+  if (typeof field === "string") return field;
+  return field[lang] || field.ro || field.en || "";
 }
 
 function contentEscapeHtml(str) {

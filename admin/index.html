@@ -22,5 +22,83 @@
       });
     }
   </script>
+  <script>
+    /* Auto-generates the URL slug and publish date for new news/history
+       posts on save, so editors never have to type them. Existing posts
+       keep their slug/date untouched (only fills in when empty). */
+    var DIACRITICS_MAP = {
+      ă: "a", â: "a", á: "a", à: "a", ä: "a",
+      î: "i", í: "i", ì: "i", ï: "i",
+      ș: "s", ş: "s",
+      ț: "t", ţ: "t",
+      é: "e", è: "e", ê: "e", ë: "e",
+      ó: "o", ò: "o", ô: "o", ö: "o",
+      ú: "u", ù: "u", û: "u", ü: "u",
+      ñ: "n", ç: "c",
+    };
+
+    function slugify(str) {
+      var lower = String(str || "").toLowerCase();
+      var stripped = "";
+      for (var i = 0; i < lower.length; i++) {
+        var ch = lower[i];
+        stripped += DIACRITICS_MAP[ch] || ch;
+      }
+      return stripped
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+        .slice(0, 60) || "articol";
+    }
+
+    function todayISO() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    /* Reads a field from either an Immutable Map/List or a plain object,
+       since Decap CMS's internal representation isn't guaranteed. */
+    function getField(node, key) {
+      return node && typeof node.get === "function" ? node.get(key) : node && node[key];
+    }
+    function setField(node, key, value) {
+      return node && typeof node.set === "function" ? node.set(key, value) : Object.assign({}, node, { [key]: value });
+    }
+
+    CMS.registerEventListener({
+      name: "preSave",
+      handler: function (args) {
+        var entryData = args.entry.get("data");
+        var posts = getField(entryData, "posts");
+        if (posts && typeof posts.map === "function") {
+          var usedSlugs = {};
+          posts.forEach(function (p) {
+            var s = getField(p, "slug");
+            if (s) usedSlugs[s] = true;
+          });
+          var updatedPosts = posts.map(function (post) {
+            var updated = post;
+            if (!getField(updated, "slug")) {
+              var titleField = getField(updated, "title");
+              var titleRo = (getField(titleField, "ro") || getField(titleField, "en") || "articol");
+              var base = slugify(titleRo);
+              var candidate = base;
+              var n = 2;
+              while (usedSlugs[candidate]) {
+                candidate = base + "-" + n;
+                n += 1;
+              }
+              updated = setField(updated, "slug", candidate);
+              usedSlugs[candidate] = true;
+            }
+            if (!getField(updated, "date")) {
+              updated = setField(updated, "date", todayISO());
+            }
+            return updated;
+          });
+          entryData = setField(entryData, "posts", updatedPosts);
+        }
+        return entryData;
+      },
+    });
+  </script>
 </body>
 </html>
