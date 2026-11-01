@@ -1,11 +1,11 @@
 {
   "title": {
-    "ro": "Despre Lasău",
-    "en": "About Lasău"
+    "ro": "Despre Lăsău",
+    "en": "About Lăsău"
   },
   "intro": {
-    "ro": "Lasău este un sat din comuna Lăpugiu de Jos, județul Hunedoara.",
-    "en": "Lasău is a village in Lăpugiu de Jos commune, Hunedoara county, Romania."
+    "ro": "Lăsău este un sat din comuna Lăpugiu de Jos, județul Hunedoara.",
+    "en": "Lăsău is a village in Lăpugiu de Jos commune, Hunedoara county, Romania."
   },
   "image": "/assets/img/uploads/img-20240716-wa0007.jpg",
   "facts_heading": {
@@ -17,8 +17,8 @@
     "en": "County: Hunedoara\nCommune: Lăpugiu de Jos\n\nFill in this section with population, altitude, and other local facts."
   },
   "directions_heading": {
-    "ro": "Cum ajungeți în Lasău",
-    "en": "How to get to Lasău"
+    "ro": "Cum ajungeți în Lăsău",
+    "en": "How to get to Lăsău"
   },
   "directions_text": {
     "ro": "Adăugați aici indicații rutiere și distanța față de cel mai apropiat oraș.",
