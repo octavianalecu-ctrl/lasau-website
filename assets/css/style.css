@@ -63,6 +63,7 @@ p { margin: 0 0 1em; }
   position: sticky;
   top: 0;
   z-index: 20;
+  min-height: 64px; /* header is built after site.json loads; avoid layout jump */
 }
 
 .site-header .container {
@@ -289,7 +290,15 @@ p { margin: 0 0 1em; }
   box-shadow: none;
 }
 
-/* ---- Info blocks (About / Contact) ---- */
+/* ---- Info blocks (About / Contact / Home sections) ---- */
+.section-image {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
 .info-block {
   background: #fff;
   border: 1px solid var(--color-border);

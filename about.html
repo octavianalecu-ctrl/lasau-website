@@ -25,15 +25,7 @@
         <span data-i18n="about_photo_placeholder"></span>
       </div>
 
-      <div class="info-block">
-        <h2 data-field="facts_heading"></h2>
-        <div data-field="facts_text" data-rich="1"></div>
-      </div>
-
-      <div class="info-block">
-        <h2 data-field="directions_heading"></h2>
-        <div data-field="directions_text" data-rich="1"></div>
-      </div>
+      <div id="sections"></div>
     </div>
   </section>
 
@@ -45,9 +37,14 @@
   <script src="assets/js/content.js"></script>
   <script>
     async function initAbout() {
+      await window.siteReady;
       const about = await fetchPageContent("content/pages/about.json");
       applyPhotoSlot("#about-photo", about, "image");
-      const render = () => applyFieldsIn(document, about);
+      const sectionsEl = document.getElementById("sections");
+      const render = () => {
+        applyFieldsIn(document, about);
+        renderSections(sectionsEl, about.sections);
+      };
       render();
       document.addEventListener("langchange", render);
     }

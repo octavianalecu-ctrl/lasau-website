@@ -37,6 +37,7 @@
   <script src="assets/js/content.js"></script>
   <script>
     async function initNews() {
+      await window.siteReady;
       const detailEl = document.getElementById("news-detail");
       const listWrap = document.getElementById("news-list-wrap");
       const listEl = document.getElementById("news-list");

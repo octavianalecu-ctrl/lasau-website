@@ -21,14 +21,9 @@
 
   <section class="section">
     <div class="container">
-      <div class="info-block">
-        <h2 data-field="council_heading"></h2>
-        <div data-field="council_text" data-rich="1"></div>
-      </div>
+      <div id="sections"></div>
 
-      <div class="info-block">
-        <h2 data-field="site_heading"></h2>
-        <div data-field="site_text" data-rich="1"></div>
+      <div class="info-block" id="contact-email-block" hidden>
         <p>Email: <a id="contact-email" href="#"></a></p>
       </div>
     </div>
@@ -42,13 +37,19 @@
   <script src="assets/js/content.js"></script>
   <script>
     async function initContact() {
+      await window.siteReady;
       const contact = await fetchPageContent("content/pages/contact.json");
       const emailLink = document.getElementById("contact-email");
       if (contact.email) {
         emailLink.href = `mailto:${contact.email}`;
         emailLink.textContent = contact.email;
+        document.getElementById("contact-email-block").hidden = false;
       }
-      const render = () => applyFieldsIn(document, contact);
+      const sectionsEl = document.getElementById("sections");
+      const render = () => {
+        applyFieldsIn(document, contact);
+        renderSections(sectionsEl, contact.sections);
+      };
       render();
       document.addEventListener("langchange", render);
     }

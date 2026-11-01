@@ -70,6 +70,27 @@ collections:
             multiple: true
             required: false
             hint: "Lasă gol pentru a afișa automat cele mai recente 2 articole."
+          - label: "Secțiuni de conținut / Content sections"
+            name: "sections"
+            widget: "list"
+            label_singular: "Secțiune / Section"
+            summary: "{{fields.heading.ro}}"
+            required: false
+            hint: "Secțiuni suplimentare care apar pe Acasă, sub articolele recomandate (opțional). Lasă gol dacă nu vrei."
+            fields:
+              - label: "Titlu secțiune / Section heading"
+                name: "heading"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string", required: false }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Text / Text"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "text" }
+                  - { label: "EN", name: "en", widget: "text", required: false }
+              - { label: "Fotografie (opțional) / Photo (optional)", name: "image", widget: "image", required: false }
 
       - file: "content/pages/about.json"
         label: "Pagina Despre sat / About page"
@@ -88,30 +109,27 @@ collections:
               - { label: "RO", name: "ro", widget: "text" }
               - { label: "EN", name: "en", widget: "text", required: false }
           - { label: "Fotografie / Photo", name: "image", widget: "image", required: false }
-          - label: "Titlu secțiune Date generale / General facts heading"
-            name: "facts_heading"
-            widget: "object"
+          - label: "Secțiuni de conținut / Content sections"
+            name: "sections"
+            widget: "list"
+            label_singular: "Secțiune / Section"
+            summary: "{{fields.heading.ro}}"
+            required: false
+            hint: "Fiecare secțiune apare ca o casetă pe pagină. Le poți adăuga, șterge și reordona (trage de bara =)."
             fields:
-              - { label: "RO", name: "ro", widget: "string" }
-              - { label: "EN", name: "en", widget: "string", required: false }
-          - label: "Text Date generale / General facts text"
-            name: "facts_text"
-            widget: "object"
-            fields:
-              - { label: "RO", name: "ro", widget: "text" }
-              - { label: "EN", name: "en", widget: "text", required: false }
-          - label: "Titlu secțiune Cum ajungeți / Directions heading"
-            name: "directions_heading"
-            widget: "object"
-            fields:
-              - { label: "RO", name: "ro", widget: "string" }
-              - { label: "EN", name: "en", widget: "string", required: false }
-          - label: "Text Cum ajungeți / Directions text"
-            name: "directions_text"
-            widget: "object"
-            fields:
-              - { label: "RO", name: "ro", widget: "text" }
-              - { label: "EN", name: "en", widget: "text", required: false }
+              - label: "Titlu secțiune / Section heading"
+                name: "heading"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string", required: false }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Text / Text"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "text" }
+                  - { label: "EN", name: "en", widget: "text", required: false }
+              - { label: "Fotografie (opțional) / Photo (optional)", name: "image", widget: "image", required: false }
 
       - file: "content/pages/contact.json"
         label: "Pagina Contact / Contact page"
@@ -129,31 +147,28 @@ collections:
             fields:
               - { label: "RO", name: "ro", widget: "text" }
               - { label: "EN", name: "en", widget: "text", required: false }
-          - label: "Titlu Primărie / Council heading"
-            name: "council_heading"
-            widget: "object"
+          - label: "Secțiuni de conținut / Content sections"
+            name: "sections"
+            widget: "list"
+            label_singular: "Secțiune / Section"
+            summary: "{{fields.heading.ro}}"
+            required: false
+            hint: "Fiecare secțiune apare ca o casetă pe pagină. Le poți adăuga, șterge și reordona (trage de bara =)."
             fields:
-              - { label: "RO", name: "ro", widget: "string" }
-              - { label: "EN", name: "en", widget: "string", required: false }
-          - label: "Text Primărie / Council text"
-            name: "council_text"
-            widget: "object"
-            fields:
-              - { label: "RO", name: "ro", widget: "text" }
-              - { label: "EN", name: "en", widget: "text", required: false }
-          - label: "Titlu Despre site / About site heading"
-            name: "site_heading"
-            widget: "object"
-            fields:
-              - { label: "RO", name: "ro", widget: "string" }
-              - { label: "EN", name: "en", widget: "string", required: false }
-          - label: "Text Despre site / About site text"
-            name: "site_text"
-            widget: "object"
-            fields:
-              - { label: "RO", name: "ro", widget: "text" }
-              - { label: "EN", name: "en", widget: "text", required: false }
-          - { label: "Email de contact", name: "email", widget: "string" }
+              - label: "Titlu secțiune / Section heading"
+                name: "heading"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string", required: false }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Text / Text"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "text" }
+                  - { label: "EN", name: "en", widget: "text", required: false }
+              - { label: "Fotografie (opțional) / Photo (optional)", name: "image", widget: "image", required: false }
+          - { label: "Email de contact", name: "email", widget: "string", required: false, hint: "Apare într-o casetă separată, la finalul paginii. Lasă gol ca să nu apară." }
 
   - name: "news"
     label: "Știri / News"
@@ -248,3 +263,113 @@ collections:
                 fields:
                   - { label: "RO", name: "ro", widget: "text" }
                   - { label: "EN", name: "en", widget: "text", required: false }
+
+  - name: "site"
+    label: "Antet și subsol / Header & footer"
+    files:
+      - file: "content/site.json"
+        label: "Antet, subsol și etichete / Header, footer & labels"
+        name: "site"
+        fields:
+          - { label: "Numele site-ului (apare în antet, stânga sus)", name: "site_name", widget: "string", hint: "Ex: Lăsău" }
+          - label: "Descriere scurtă (apare în titlul tabului din browser) / Tagline"
+            name: "site_tagline"
+            widget: "object"
+            fields:
+              - { label: "RO", name: "ro", widget: "string", required: false }
+              - { label: "EN", name: "en", widget: "string", required: false }
+          - label: "Meniu din antet / Header menu"
+            name: "nav"
+            widget: "object"
+            fields:
+              - label: "Acasă"
+                name: "home"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Știri"
+                name: "news"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Istorie"
+                name: "history"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Despre sat"
+                name: "about"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Contact"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+          - label: "Text din subsol / Footer text"
+            name: "footer_text"
+            widget: "object"
+            fields:
+              - { label: "RO", name: "ro", widget: "string" }
+              - { label: "EN", name: "en", widget: "string", required: false }
+          - label: "Linkuri din subsol / Footer links"
+            name: "footer_links"
+            widget: "list"
+            label_singular: "Link"
+            summary: "{{fields.label.ro}}"
+            required: false
+            hint: "Linkurile mici din dreapta subsolului. Le poți adăuga, șterge și reordona."
+            fields:
+              - label: "Text link / Link text"
+                name: "label"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - { label: "Adresa linkului", name: "url", widget: "string", hint: "Pagină din site: news.html, history.html, about.html, contact.html — sau o adresă completă: https://..." }
+          - label: "Etichete butoane și mesaje / Button labels & messages"
+            name: "labels"
+            widget: "object"
+            fields:
+              - label: "Buton „Vezi tot”"
+                name: "see_all"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Buton „Citește mai mult”"
+                name: "read_more"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Buton „Înapoi la listă”"
+                name: "back_to_list"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Mesaj când nu sunt știri"
+                name: "empty_news"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Mesaj când nu sunt articole de istorie"
+                name: "empty_history"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }
+              - label: "Mesaj articol negăsit"
+                name: "not_found"
+                widget: "object"
+                fields:
+                  - { label: "RO", name: "ro", widget: "string" }
+                  - { label: "EN", name: "en", widget: "string", required: false }

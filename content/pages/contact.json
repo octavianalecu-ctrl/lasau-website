@@ -7,21 +7,27 @@
     "ro": "Pentru sesizări, întrebări sau informații despre satul Lasău, ne puteți contacta astfel:",
     "en": "For inquiries, questions, or information about Lasău, you can reach us here:"
   },
-  "council_heading": {
-    "ro": "Primăria comunei Lăpugiu de Jos",
-    "en": "Lăpugiu de Jos commune council"
-  },
-  "council_text": {
-    "ro": "Completați cu adresa, telefonul și programul de audiențe al primăriei.",
-    "en": "Fill in the address, phone number, and office hours of the local council."
-  },
-  "site_heading": {
-    "ro": "Despre acest site",
-    "en": "About this website"
-  },
-  "site_text": {
-    "ro": "Pentru a trimite o știre sau un articol despre istoria satului, contactați administratorul site-ului.",
-    "en": "To submit a news item or a history article, contact the site administrator."
-  },
-  "email": "contact@lasau-hd.ro"
+  "email": "contact@lasau-hd.ro",
+  "sections": [
+    {
+      "heading": {
+        "ro": "Primăria comunei Lăpugiu de Jos",
+        "en": "Lăpugiu de Jos commune council"
+      },
+      "text": {
+        "ro": "Completați cu adresa, telefonul și programul de audiențe al primăriei.",
+        "en": "Fill in the address, phone number, and office hours of the local council."
+      }
+    },
+    {
+      "heading": {
+        "ro": "Despre acest site",
+        "en": "About this website"
+      },
+      "text": {
+        "ro": "Pentru a trimite o știre sau un articol despre istoria satului, contactați administratorul site-ului.",
+        "en": "To submit a news item or a history article, contact the site administrator."
+      }
+    }
+  ]
 }

@@ -47,6 +47,12 @@
     </div>
   </section>
 
+  <section class="section" id="home-sections-wrap" hidden>
+    <div class="container">
+      <div id="home-sections"></div>
+    </div>
+  </section>
+
   <footer class="site-footer" id="site-footer"></footer>
 
   <script src="assets/js/translations.js"></script>
@@ -56,6 +62,7 @@
   <script src="assets/js/content.js"></script>
   <script>
     async function initHome() {
+      await window.siteReady;
       const newsList = document.getElementById("home-news-list");
       const historyList = document.getElementById("home-history-list");
       const [newsPosts, historyPosts, home] = await Promise.all([
@@ -64,8 +71,11 @@
         fetchPageContent("content/pages/home.json"),
       ]);
       applyHeroImage(home);
+      const homeSections = document.getElementById("home-sections");
+      const homeSectionsWrap = document.getElementById("home-sections-wrap");
       const render = () => {
         applyFieldsIn(document, home);
+        renderSections(homeSections, home.sections, { hideEmptyWrapper: homeSectionsWrap });
         renderPostCards(newsList, pickFeatured(newsPosts, home.featured_news), { basePage: "news.html" });
         renderPostCards(historyList, pickFeatured(historyPosts, home.featured_history), { basePage: "history.html" });
       };

@@ -8,20 +8,26 @@
     "en": "Lăsău is a village in Lăpugiu de Jos commune, Hunedoara county, Romania."
   },
   "image": "/assets/img/uploads/img-20240716-wa0007.jpg",
-  "facts_heading": {
-    "ro": "Date generale",
-    "en": "General facts"
-  },
-  "facts_text": {
-    "ro": "Județ: Hunedoara\nComuna: Lăpugiu de Jos\n\nCompletați această secțiune cu populația, altitudinea și alte date locale.",
-    "en": "County: Hunedoara\nCommune: Lăpugiu de Jos\n\nFill in this section with population, altitude, and other local facts."
-  },
-  "directions_heading": {
-    "ro": "Cum ajungeți în Lăsău",
-    "en": "How to get to Lăsău"
-  },
-  "directions_text": {
-    "ro": "Adăugați aici indicații rutiere și distanța față de cel mai apropiat oraș.",
-    "en": "Add driving directions and the distance from the nearest town here."
-  }
+  "sections": [
+    {
+      "heading": {
+        "ro": "Date generale",
+        "en": "General facts"
+      },
+      "text": {
+        "ro": "Județ: Hunedoara\nComuna: Lăpugiu de Jos\n\nCompletați această secțiune cu populația, altitudinea și alte date locale.",
+        "en": "County: Hunedoara\nCommune: Lăpugiu de Jos\n\nFill in this section with population, altitude, and other local facts."
+      }
+    },
+    {
+      "heading": {
+        "ro": "Cum ajungeți în Lăsău",
+        "en": "How to get to Lăsău"
+      },
+      "text": {
+        "ro": "Adăugați aici indicații rutiere și distanța față de cel mai apropiat oraș.",
+        "en": "Add driving directions and the distance from the nearest town here."
+      }
+    }
+  ]
 }

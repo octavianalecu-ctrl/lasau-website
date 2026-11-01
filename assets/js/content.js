@@ -34,6 +34,24 @@ function richTextHtml(text) {
     .join("");
 }
 
+/* Renders a free-form list of sections (heading + text + optional photo),
+   as edited in the admin panel. Hides the wrapper when there are none. */
+function renderSections(container, sections, { hideEmptyWrapper } = {}) {
+  const lang = getLang();
+  const list = Array.isArray(sections) ? sections : [];
+  container.innerHTML = list
+    .map((sec) => {
+      const heading = fieldFor(sec, "heading", lang);
+      const text = fieldFor(sec, "text", lang);
+      const image = sec.image
+        ? `<img class="section-image" src="${escapeAttr(sec.image)}" alt="">`
+        : "";
+      return `<div class="info-block">${heading ? `<h2>${contentEscapeHtml(heading)}</h2>` : ""}${image}${richTextHtml(text)}</div>`;
+    })
+    .join("");
+  if (hideEmptyWrapper) hideEmptyWrapper.hidden = list.length === 0;
+}
+
 /* Sets textContent on elements whose data-field attribute names a field
    base (e.g. data-field="title" reads title_ro/title_en). Elements with
    data-rich="1" get paragraph-split HTML instead of plain text. */

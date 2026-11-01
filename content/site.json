@@ -1,0 +1,31 @@
+{
+  "site_name": "Lăsău",
+  "site_tagline": {
+    "ro": "sat, județul Hunedoara",
+    "en": "village, Hunedoara county"
+  },
+  "nav": {
+    "home": { "ro": "Acasă", "en": "Home" },
+    "news": { "ro": "Știri", "en": "News" },
+    "history": { "ro": "Istorie", "en": "History" },
+    "about": { "ro": "Despre sat", "en": "About" },
+    "contact": { "ro": "Contact", "en": "Contact" }
+  },
+  "footer_text": {
+    "ro": "Sat Lăsău, județul Hunedoara.",
+    "en": "Lăsău village, Hunedoara county."
+  },
+  "footer_links": [
+    { "label": { "ro": "Știri", "en": "News" }, "url": "news.html" },
+    { "label": { "ro": "Istorie", "en": "History" }, "url": "history.html" },
+    { "label": { "ro": "Contact", "en": "Contact" }, "url": "contact.html" }
+  ],
+  "labels": {
+    "see_all": { "ro": "Vezi tot →", "en": "See all →" },
+    "read_more": { "ro": "Citește mai mult →", "en": "Read more →" },
+    "back_to_list": { "ro": "← Înapoi la listă", "en": "← Back to list" },
+    "empty_news": { "ro": "Nu există încă știri publicate.", "en": "No news published yet." },
+    "empty_history": { "ro": "Nu există încă articole de istorie publicate.", "en": "No history articles published yet." },
+    "not_found": { "ro": "Articolul nu a fost găsit.", "en": "Article not found." }
+  }
+}

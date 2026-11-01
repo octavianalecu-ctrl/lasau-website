@@ -13,16 +13,17 @@ history.html         Istoria satului (listă + articol individual via ?slug=)
 about.html           Despre sat
 contact.html         Contact
 
-content/pages/home.json        text Acasă (hero, titluri secțiuni) + articole recomandate
-content/pages/about.json       text pagina Despre sat + fotografie
-content/pages/contact.json     text pagina Contact + email
+content/site.json              antet (nume sat, meniu), subsol, titlul tabului, etichete butoane
+content/pages/home.json        text Acasă (hero, titluri) + articole recomandate + secțiuni
+content/pages/about.json       Despre sat: titlu, intro, fotografie + secțiuni
+content/pages/contact.json     Contact: titlu, intro, email + secțiuni
 content/news/news.json         titlu/intro pagina Știri + toate articolele de știri
 content/history/history.json   titlu/intro pagina Istorie + toate articolele de istorie
 
 assets/css/style.css            stiluri
-assets/js/translations.js       texte fixe de interfață (navigare, butoane) — nu conținut
+assets/js/translations.js       texte implicite de interfață (rezervă dacă site.json lipsește)
 assets/js/i18n.js                comutare RO/EN pentru interfață
-assets/js/layout.js              antet + subsol comune
+assets/js/layout.js              antet + subsol comune (citite din content/site.json)
 assets/js/posts.js               randare articole (listă, detaliu, selecție recomandate)
 assets/js/content.js             randare conținut per-pagină din content/pages/*.json
 
@@ -44,16 +45,23 @@ apoi deschide `http://localhost:8000`.
 
 Odată activat CMS-ul (pași mai jos), din `/admin/` poți edita, fără cod:
 
+- **Antet și subsol** (secțiunea „Antet și subsol” din panou) — numele satului din antet,
+  etichetele din meniu, descrierea scurtă din titlul tabului browserului, textul din subsol,
+  **linkurile din subsol** (adăugare/ștergere/reordonare; pot duce spre pagini din site sau spre
+  adrese externe) și etichetele butoanelor („Citește mai mult”, „Vezi tot”, mesajele de listă goală).
 - **Pagina Acasă** — titlu și subtitlu (hero), fotografia principală, titlurile secțiunilor de
-  Știri/Istorie, și **ce articole apar pe prima pagină** (selecție manuală din articolele
-  existente; dacă nu selectezi nimic, se afișează automat cele mai recente 2 din fiecare).
-- **Pagina Despre sat** — titlu, introducere, fotografie, textul din „Date generale" și „Cum
-  ajungeți în Lasău".
-- **Pagina Contact** — titlu, introducere, datele primăriei, textul despre site și email-ul
-  de contact.
+  Știri/Istorie, **ce articole apar pe prima pagină** (selecție manuală; dacă nu selectezi nimic,
+  se afișează automat cele mai recente 2 din fiecare) și, opțional, **secțiuni suplimentare**.
+- **Pagina Despre sat** — titlu, introducere, fotografie și o **listă flexibilă de secțiuni**.
+- **Pagina Contact** — titlu, introducere, o **listă flexibilă de secțiuni** și email-ul de contact
+  (apare într-o casetă separată; gol = nu apare).
 - **Știri** — titlul și introducerea paginii, plus fiecare articol (titlu, rezumat, text
   integral, fotografie opțională). URL-ul articolului și data se generează automat.
 - **Istorie** — la fel ca Știri.
+
+**Secțiuni flexibile** (Acasă, Despre sat, Contact): fiecare secțiune are titlu (opțional), text și
+fotografie (opțională) și apare ca o casetă pe pagină. Le poți adăuga, șterge și reordona din
+panou, fără cod.
 
 Fiecare câmp de text are RO și EN **în aceeași casetă** (RO obligatoriu, EN opțional) — nu în
 secțiuni separate. Dacă lipsește varianta EN, site-ul afișează automat textul RO și pentru

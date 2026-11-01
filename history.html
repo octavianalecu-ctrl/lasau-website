@@ -37,6 +37,7 @@
   <script src="assets/js/content.js"></script>
   <script>
     async function initHistory() {
+      await window.siteReady;
       const detailEl = document.getElementById("history-detail");
       const listWrap = document.getElementById("history-list-wrap");
       const listEl = document.getElementById("history-list");
